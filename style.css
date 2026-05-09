@@ -370,6 +370,88 @@ em { font-style: italic; color: var(--sky); }
 .footer-links a:hover { color: var(--yellow); }
 .footer-links .ig-icon { width: 15px; height: 15px; }
 
+/* ── VIDEO SHOWCASE ── */
+.video-showcase {
+  padding: 5rem 2rem;
+  background: var(--off-white);
+  border-top: 1px solid var(--gray);
+}
+.video-inner {
+  max-width: 860px;
+  margin: 0 auto;
+}
+.video-wrapper {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  background: var(--navy);
+  border: 2px solid transparent;
+  transition: border-color var(--transition), box-shadow var(--transition);
+  cursor: pointer;
+}
+.video-wrapper:hover {
+  border-color: var(--sky);
+  box-shadow: 0 16px 48px rgba(30,43,77,0.15);
+}
+.showcase-video {
+  width: 100%;
+  display: block;
+  max-height: 520px;
+  object-fit: cover;
+}
+.video-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.25rem;
+  background: rgba(30,43,77,0.35);
+  transition: background var(--transition), opacity var(--transition);
+}
+.video-overlay.playing {
+  background: transparent;
+  opacity: 0;
+  pointer-events: none;
+}
+.video-wrapper:hover .video-overlay.playing {
+  opacity: 1;
+  pointer-events: auto;
+  background: rgba(30,43,77,0.25);
+}
+.play-btn {
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background: var(--yellow);
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--navy);
+  transition: transform var(--transition), background var(--transition);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.25);
+}
+.play-btn:hover { transform: scale(1.1); background: #e6a800; }
+.play-btn svg { width: 28px; height: 28px; margin-left: 4px; }
+.video-overlay.playing .play-btn svg polygon {
+  points: "4,4 12,4 12,20 4,20 M14,4 22,4 22,20 14,20";
+}
+.video-caption {
+  color: rgba(255,255,255,0.85);
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+@media (max-width: 600px) {
+  .play-btn { width: 58px; height: 58px; }
+  .play-btn svg { width: 22px; height: 22px; }
+}
+
 /* ── RESPONSIVE ── */
 @media (max-width: 900px) {
   .nav-links { display: none; }
